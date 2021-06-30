@@ -29,10 +29,4 @@ describe('MessagesComponent', () => {
     fixture.detectChanges();
     expect(h2.textContent).toContain("Messages");
   });
-
-  it('should display a different message title', () => {
-    h2.textContent = 'Oodles of Noodles';
-    fixture.detectChanges();
-    expect(h2.textContent).toContain('Oodles of Noodles');
-  });
 });
