@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { Component } from '@angular/core';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-heroes',
@@ -13,13 +13,6 @@ export class HeroesComponent {
 
   heroes$ = this.heroService.getHeroes();
 
-  selectedHero?: Hero;
-
   constructor(private heroService: HeroService, private messageService: MessageService) {}
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
 
 }

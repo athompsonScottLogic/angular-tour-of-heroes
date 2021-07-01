@@ -13,4 +13,32 @@ describe('MessageService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should start empty', () => {
+    expect(service.messages).toEqual([]);
+  });
+
+  it('should add a message', () => {
+    service.add("test message");
+    expect(service.messages).toEqual(["test message"]);
+  });
+
+  it('should add two messages', () => {
+    service.add("test message");
+    service.add("another test message");
+    expect(service.messages).toEqual(["test message", "another test message"]);
+  });
+
+  it('should clear message list', () => {
+    service.add("test message");
+    service.clear();
+    expect(service.messages).toEqual([]);
+  });
+
+  it('should display correct amount after clearing and re-adding', () => {
+    service.add("test message");
+    service.clear();
+    service.add("another test message");
+    expect(service.messages).toEqual(["another test message"]);
+  });
 });

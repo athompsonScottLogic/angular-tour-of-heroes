@@ -24,9 +24,4 @@ describe('MessagesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should display message title', () => {
-    fixture.detectChanges();
-    expect(h2.textContent).toContain("Messages");
-  });
 });

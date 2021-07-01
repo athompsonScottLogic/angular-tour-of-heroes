@@ -15,5 +15,11 @@ export class HeroService {
     return heroes;
   }
 
+  getTopHeroes(): Observable<Hero[]> {
+    const heroes = of(HEROES.slice(0,4));
+    this.messageService.add('HeroService: fetched heroes');
+    return heroes;
+  }
+
   constructor(private messageService: MessageService) { }
 }
