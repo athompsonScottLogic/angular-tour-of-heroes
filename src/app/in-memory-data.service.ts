@@ -13,7 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 3, name: 'Dam Bogger' },
       { id: 4, name: 'Yarr van Gogh' },
       { id: 5, name: 'Dr Hardhead' },
-      { id: 6, name: 'Gill Guy' },
+      { id: 6, name: 'Gilly Guy' },
       { id: 7, name: 'The Settler' },
       { id: 8, name: 'Xena: Princess' },
       { id: 9, name: 'Half Oasis' },
