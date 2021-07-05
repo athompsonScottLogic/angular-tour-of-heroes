@@ -1,18 +1,30 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { switchMap } from 'rxjs/operators';
+
 import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.scss']
+  styleUrls: [ './hero-detail.component.scss' ]
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent{
+  readonly hero$ = this.route.paramMap
+  .pipe(
+    switchMap(params => this.heroService.getHero(Number(params.get('id'))))
+  );
 
-  @Input() hero?: Hero;
+  constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location
+  ) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  goBack(): void {
+    this.location.back();
   }
-
 }

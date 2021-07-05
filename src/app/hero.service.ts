@@ -9,8 +9,20 @@ import { MessageService } from './message.service';
 })
 export class HeroService {
 
+  getHero(id: number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
+  }
+
   getHeroes(): Observable<Hero[]> {
     const heroes = of(HEROES);
+    this.messageService.add('HeroService: fetched heroes');
+    return heroes;
+  }
+
+  getTopHeroes(): Observable<Hero[]> {
+    const heroes = of(HEROES.slice(0,4));
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
   }
