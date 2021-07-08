@@ -25,7 +25,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
   ],
   imports: [
     HttpClientModule,
-    // Returns simulated server responses - remove when a real server is ready to receive requests
+    // TODO - Returns simulated server responses - remove when a real server is ready to receive requests
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     BrowserModule,
     FormsModule,
